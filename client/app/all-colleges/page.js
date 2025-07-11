@@ -1,10 +1,13 @@
+"use client";
 import { Button } from "@/components/ui/button";
-import colleges from "@/data/allCollege";
-
+import { useColleges } from "@/Hooks/useColleges";
+import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 
-function collegesPage() {
+function CollegesPage() {
+  const { data: colleges, isLoading, isError, error } = useColleges();
+  console.log(colleges);
   return (
     <div className="pt-20 min-h-screen bg-gray-100 px-4">
       <h1 className="text-3xl font-bold text-center text-green-700 mb-8">
@@ -12,7 +15,7 @@ function collegesPage() {
       </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {colleges.map((college) => (
+        {colleges?.map((college) => (
           <div
             key={college.id}
             className="bg-white rounded-lg shadow-md overflow-hidden"
@@ -40,7 +43,7 @@ function collegesPage() {
                 <span className="font-medium">{college.researchCount}</span>
               </p>
 
-              <Link href={`/collegess/${college.id}`}>
+              <Link href={`/colleges/1`}>
                 <Button className="mt-4">View Details</Button>
               </Link>
             </div>
@@ -51,4 +54,4 @@ function collegesPage() {
   );
 }
 
-export default collegesPage;
+export default CollegesPage;

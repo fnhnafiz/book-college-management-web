@@ -4,11 +4,12 @@ const dotenv = require("dotenv");
 // const connectDB = require("./db");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const User = require("./models/User");
 const PORT = process.env.PORT || 5000;
 dotenv.config();
 const app = express();
 
+const User = require("./models/User");
+const College = require("./models/Colleges");
 app.use(cors());
 app.use(express.json());
 
@@ -76,5 +77,18 @@ app.post("/login", async (req, res) => {
   } catch (err) {
     console.error("Login Error:", err);
     res.status(500).json({ error: "Server error" });
+  }
+});
+
+// GET all colleges
+app.get("/colleges", async (req, res) => {
+  try {
+    const colleges = await College.find();
+    console.log("Fetched colleges from DB:", colleges); // Add this
+
+    res.status(200).json(colleges);
+  } catch (error) {
+    console.error("Error fetching colleges:", error);
+    res.status(500).json({ message: "Failed to fetch colleges." });
   }
 });
