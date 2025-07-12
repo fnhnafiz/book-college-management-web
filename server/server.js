@@ -84,11 +84,12 @@ app.post("/login", async (req, res) => {
 app.get("/colleges", async (req, res) => {
   try {
     const colleges = await College.find();
-    console.log("Fetched colleges from DB:", colleges); // Add this
-
     res.status(200).json(colleges);
   } catch (error) {
-    console.error("Error fetching colleges:", error);
     res.status(500).json({ message: "Failed to fetch colleges." });
   }
+});
+// Root route
+app.get("/", (req, res) => {
+  res.send(" AdmitWise Server is running");
 });

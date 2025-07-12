@@ -1,13 +1,13 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { useColleges } from "@/Hooks/useColleges";
-import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import Link from "next/link";
 
 function CollegesPage() {
-  const { data: colleges, isLoading, isError, error } = useColleges();
+  const { data: colleges, isLoading } = useColleges();
   console.log(colleges);
+  if (isLoading) return <h1>Loading.....</h1>;
   return (
     <div className="pt-20 min-h-screen bg-gray-100 px-4">
       <h1 className="text-3xl font-bold text-center text-green-700 mb-8">
@@ -17,12 +17,12 @@ function CollegesPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         {colleges?.map((college) => (
           <div
-            key={college.id}
+            key={college._id}
             className="bg-white rounded-lg shadow-md overflow-hidden"
           >
             <Image
-              src={college.image}
-              alt={college.name}
+              src={college?.collegeImage}
+              alt={college.collegeName}
               width={600}
               height={300}
               className="w-full h-48 object-cover"
