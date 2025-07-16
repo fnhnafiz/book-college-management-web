@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -30,13 +29,9 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("user");
-    router.refresh(); // force refetch of the query
+    router.refresh();
     router.push("/login");
   };
-
-  const shouldHide =
-    pathname?.startsWith("/login") || pathname?.startsWith("/register");
-  if (shouldHide) return null;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +40,10 @@ function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const shouldHide =
+    pathname?.startsWith("/login") || pathname?.startsWith("/register");
+  if (shouldHide) return null;
 
   return (
     <div

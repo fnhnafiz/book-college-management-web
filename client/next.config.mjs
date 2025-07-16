@@ -1,9 +1,7 @@
-// next.config.mjs
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["images.unsplash.com", "source.unsplash.com"],
+    domains: ["images.unsplash.com", "i.ibb.co"],
   },
 };
 

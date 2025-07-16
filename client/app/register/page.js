@@ -20,7 +20,8 @@ function RegisterPage() {
   const router = useRouter();
 
   const API_BASE_URL =
-    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000";
+    process.env.NEXT_PUBLIC_API_BASE_URL ||
+    "https://server-gules-three-43.vercel.app";
 
   const onSubmit = async (data) => {
     try {
@@ -84,7 +85,7 @@ function RegisterPage() {
               </div>
 
               {/* Photo URL */}
-              <div className="grid gap-2">
+              {/* <div className="grid gap-2">
                 <Label htmlFor="photo">Photo URL</Label>
                 <Input
                   id="photo"
@@ -92,7 +93,7 @@ function RegisterPage() {
                   placeholder="https://example.com/your-photo.jpg"
                   {...register("photo", { required: "Photo URL is required" })}
                 />
-              </div>
+              </div> */}
 
               <Button type="submit" className="w-full mt-4">
                 Register

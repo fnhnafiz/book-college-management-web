@@ -6,7 +6,7 @@ import Link from "next/link";
 
 function CollegesPage() {
   const { data: colleges, isLoading } = useColleges();
-  console.log(colleges);
+  // console.log(colleges);
   if (isLoading) return <h1>Loading.....</h1>;
   return (
     <div className="pt-20 min-h-screen bg-gray-100 px-4">
@@ -43,7 +43,7 @@ function CollegesPage() {
                 <span className="font-medium">{college.researchCount}</span>
               </p>
 
-              <Link href={`/colleges/1`}>
+              <Link href={`/colleges/${college._id}`}>
                 <Button className="mt-4">View Details</Button>
               </Link>
             </div>
