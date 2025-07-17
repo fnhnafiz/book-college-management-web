@@ -14,6 +14,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 function RegisterPage() {
   const { register, handleSubmit } = useForm();
@@ -28,10 +29,10 @@ function RegisterPage() {
       // Send form data to backend signup route
       const response = await axios.post(`${API_BASE_URL}/signup`, data);
 
-      alert("Registration successful! Please login.");
+      toast.success("Registration successful! Please login.");
       router.push("/login");
     } catch (err) {
-      alert(err.response?.data?.error || "Registration failed");
+      toast.error(err.response?.data?.error || "Registration failed");
       console.error(err);
     }
   };

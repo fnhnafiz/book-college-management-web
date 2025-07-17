@@ -5,6 +5,7 @@ import { getCurrentUser } from "@/lib/auth";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 
 function AdmissionPage() {
   const { data: colleges, isLoading } = useColleges();
@@ -34,7 +35,7 @@ function AdmissionPage() {
     fetchUser();
   }, [reset]);
 
-  if (isLoading || !user)
+  if (isLoading)
     return (
       <div className="min-h-screen bg-gradient-to-br from-emerald-50 to-slate-100 flex items-center justify-center">
         <div className="text-center">
@@ -87,11 +88,11 @@ function AdmissionPage() {
       };
 
       const res = await axios.post(`${API_BASE_URL}/admissions`, formData);
-      alert("Admission Successfully");
+      toast.success("Admission Successfully");
       reset();
     } catch (error) {
       console.error("Submission Error:", error.response?.data);
-      alert(
+      toast.error(
         error.response?.data?.error || "Something went wrong. Please try again."
       );
     } finally {

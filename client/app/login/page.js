@@ -17,6 +17,7 @@ import { useForm } from "react-hook-form";
 
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 function LoginPage() {
   const { register, handleSubmit } = useForm();
@@ -30,10 +31,10 @@ function LoginPage() {
       const response = await axios.post(`${API_BASE_URL}/login`, data);
       const user = response.data.user;
       localStorage.setItem("user", JSON.stringify(user));
-      alert("Login successful!");
+      toast.success("Login successful!");
       router.push("/"); // redirect to home or dashboard
     } catch (err) {
-      alert(err.response?.data?.error || "Login failed");
+      toast.error(err.response?.data?.error || "Login failed");
       console.error(err);
     }
   };

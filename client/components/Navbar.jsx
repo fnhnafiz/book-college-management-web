@@ -22,7 +22,7 @@ function Navbar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const { data: user } = useQuery({
+  const { data: user, isLoading } = useQuery({
     queryKey: ["user"],
     queryFn: getCurrentUser,
     staleTime: Infinity,
@@ -247,7 +247,7 @@ function Navbar() {
 
           {/* User Section */}
           <div className="flex flex-col gap-4 mt-auto border-t border-white/20 pt-6">
-            {!user ? (
+            {isLoading ? null : !user ? (
               <Link href="/login">
                 <Button className="bg-white text-emerald-700 hover:bg-amber-100 hover:text-emerald-800 font-semibold transition-all duration-200 w-full shadow-md">
                   Sign In

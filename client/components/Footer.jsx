@@ -57,7 +57,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-r from-green-600 to-green-800 text-white overflow-hidden ">
+    <footer className="relative bg-gradient-to-r from-emerald-700 to-emerald-800 text-white overflow-hidden ">
       {/* Floating Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
@@ -192,7 +192,7 @@ function Footer() {
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-white/90 text-sm flex items-center">
-                &copy; {year} EduConnect. All rights reserved. Made with
+                &copy; {year} ADMIT WISE. All rights reserved. Made with
                 <Heart className="w-4 h-4 mx-1 text-red-300 animate-pulse" />
                 in Bangladesh
               </div>

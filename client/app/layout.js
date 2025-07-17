@@ -6,6 +6,7 @@ import Providers from "./providers";
 import ReviewSection from "@/components/ReviewSection";
 import ReasearchPaper from "@/components/ReasearchPaper";
 import Gallery from "@/components/Gallery";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,10 @@ export default function RootLayout({ children }) {
       >
         <Providers>
           <Navbar />
-          <main className="min-h-[calc(100vh-250px)] mb-12">{children}</main>
+          <main className="min-h-[calc(100vh-250px)] mb-12">
+            {children}
+            <ToastContainer position="top-right" autoClose={3000} />
+          </main>
 
           <Gallery />
           <ReasearchPaper />
