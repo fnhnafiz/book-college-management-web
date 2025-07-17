@@ -248,7 +248,7 @@ function MyCollegePage() {
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Calendar className="w-4 h-4 text-emerald-600" />
+                      <Calendar className="w-4 h-4 text-emerald-700" />
                       <span className="text-sm text-gray-600">
                         Born: {admission.dob}
                       </span>
