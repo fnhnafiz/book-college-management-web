@@ -166,13 +166,13 @@ app.get("/my-addmissions", async (req, res) => {
 // Students colleges Reviews;
 app.post("/reviews", async (req, res) => {
   try {
+    const { collegeId, userEmail, reviewText, rating } = req.body;
     const existingReview = await Review.findOne({ collegeId, userEmail });
     if (existingReview) {
       return res
         .status(400)
         .json({ error: "You already submitted a review for this college." });
     }
-    const { collegeId, userEmail, reviewText, rating } = req.body;
 
     if (!collegeId || !userEmail || !reviewText || !rating) {
       return res.status(400).json({ error: "All fields are required" });
