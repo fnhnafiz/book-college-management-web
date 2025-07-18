@@ -24,11 +24,33 @@ import {
 export default function CollegeDetailsPage() {
   const { id } = useParams();
 
-  const { data: college, isLoading, isError, error } = useCollegeDetails(id);
-  console.log(college);
+  const { data: college, isLoading } = useCollegeDetails(id);
+  // console.log(college);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error: {error.message}</p>;
+  if (isLoading)
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-emerald-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="relative">
+            <div className="animate-spin rounded-full h-20 w-20 border-4 border-emerald-200 border-t-emerald-600 mx-auto mb-6"></div>
+            <div
+              className="absolute inset-0 rounded-full h-20 w-20 border-4 border-transparent border-r-amber-400 animate-spin mx-auto"
+              style={{
+                animationDirection: "reverse",
+                animationDuration: "1.5s",
+              }}
+            ></div>
+          </div>
+          <p className="text-2xl font-bold text-emerald-700 animate-pulse mb-2">
+            Loading Your Admissions...
+          </p>
+          <p className="text-emerald-600">
+            Please wait while we fetch your data
+          </p>
+        </div>
+      </div>
+    );
+  // if (isError) return <p>Error: {error.message}</p>;
 
   return (
     <div className="pt-16 pb-16 min-h-screen bg-gradient-to-br from-emerald-50 via-white to-amber-50">
