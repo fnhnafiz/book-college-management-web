@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["400", "500", "700"], // You can customize weights
+  weight: ["400", "500", "700"],
   display: "swap",
 });
 
@@ -18,7 +18,7 @@ export const metadata = {
   title: "AdmitWise",
   description: "Your trusted platform for college admissions.",
   icons: {
-    icon: "public/favicon.png",
+    icon: "/favicon.png",
   },
 };
 
