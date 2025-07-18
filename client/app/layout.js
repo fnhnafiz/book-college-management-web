@@ -18,7 +18,7 @@ export const metadata = {
   title: "AdmitWise",
   description: "Your trusted platform for college admissions.",
   icons: {
-    icon: "/favicon.png", // or /favicon.png
+    icon: "public/favicon.png",
   },
 };
 

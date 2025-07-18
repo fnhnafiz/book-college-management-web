@@ -99,7 +99,7 @@ function ReviewSection() {
                 {/* Star Distribution */}
                 <div className="col-span-1 md:col-span-2">
                   <div className="space-y-2">
-                    {starDistribution.map((dist) => (
+                    {starDistribution?.map((dist) => (
                       <div key={dist.stars} className="flex items-center gap-3">
                         <div className="flex items-center gap-1 w-12">
                           <span className="text-sm font-medium">
